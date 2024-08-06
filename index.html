@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding-top: 20px;
+        }
+        .download-button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <button class="download-button" id="downloadButton1">Video 1</button>
+    <button class="download-button" id="downloadButton2">Video 2</button>
+    <button class="download-button" id="downloadButton3">Music</button>
+
+    <script>
+        const files = [
+            { id: 'downloadButton1', url: 'assets/4781570-hd_1920_1080_25fps.mp4', name: '4781570-hd_1920_1080_25fps.mp4' },
+            { id: 'downloadButton2', url: 'assets/uhd_25fps.mp4', name: 'uhd_25fps.mp4' },
+            { id: 'downloadButton3', url: 'assets/Energetic EDM Festival by Infraction  [No Copyright Music] - Lionheart (320  kbps).mp3', name: 'Energetic EDM Festival by Infraction  [No Copyright Music] - Lionheart (320  kbps).mp3' },
+            { id: 'downloadButton4', url: 'path/to/image2.jpg', name: 'image2.jpg' },
+            { id: 'downloadButton5', url: 'path/to/audio1.mp3', name: 'audio1.mp3' },
+            { id: 'downloadButton6', url: 'path/to/audio2.mp3', name: 'audio2.mp3' },
+            { id: 'downloadButton7', url: 'path/to/video3.mp4', name: 'video3.mp4' },
+            { id: 'downloadButton8', url: 'path/to/image3.jpg', name: 'image3.jpg' },
+            { id: 'downloadButton9', url: 'path/to/audio3.mp3', name: 'audio3.mp3' },
+            { id: 'downloadButton10', url: 'path/to/document.pdf', name: 'document.pdf' }
+        ];
+
+        files.forEach(file => {
+            document.getElementById(file.id).addEventListener('click', function() {
+                const a = document.createElement('a');
+                a.href = file.url;
+                a.download = file.name;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        });
+    </script>
+</body>
+</html>
